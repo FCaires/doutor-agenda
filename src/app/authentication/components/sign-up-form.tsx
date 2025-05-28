@@ -52,11 +52,17 @@ const SignUpForm = () => {
         email: values.email,
         password: values.password,
         name: values.name,
-        callbackURL: "/dashboard",
       },
       {
         onSuccess: () => {
           router.push("/dashboard");
+        },
+        onError: (ctx) => {
+          if (ctx.error.code === "USER_ALREADY_EXISTS") {
+            toast.error("E-mail já cadastrado.");
+            return;
+          }
+          toast.error("Erro ao criar conta.");
         },
       },
     );

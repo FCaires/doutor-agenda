@@ -20,6 +20,7 @@ import { FormControl, FormMessage } from "@/components/ui/form";
 import { FormItem, FormLabel } from "@/components/ui/form";
 import { Form, FormField } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { authClient } from "@/lib/auth-client";
 
 const loginSchema = z.object({
   email: z
@@ -34,6 +35,7 @@ const loginSchema = z.object({
 });
 
 const LoginForm = () => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -42,9 +44,30 @@ const LoginForm = () => {
     },
   });
 
-  const handleSubmit = async (values: z.infer<typeof loginSchema>) => {};
+  const handleSubmit = async (values: z.infer<typeof loginSchema>) => {
+    await authClient.signIn.email(
+      {
+        email: values.email,
+        password: values.password,
+      },
+      {
+        onSuccess: () => {
+          router.push("/dashboard");
+        },
+        onError: () => {
+          toast.error("E-mail ou senha inválidos.");
+        },
+      },
+    );
+  };
 
-  const handleGoogleLogin = async () => {};
+  const handleGoogleLogin = async () => {
+    // await authClient.signIn.social({
+    //   provider: "google",
+    //   callbackURL: "/dashboard",
+    //   scopes: ["email", "profile"],
+    // });
+  };
 
   return (
     <Card>
