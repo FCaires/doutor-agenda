@@ -62,11 +62,11 @@ const LoginForm = () => {
   };
 
   const handleGoogleLogin = async () => {
-    // await authClient.signIn.social({
-    //   provider: "google",
-    //   callbackURL: "/dashboard",
-    //   scopes: ["email", "profile"],
-    // });
+    await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/dashboard",
+      scopes: ["email", "profile"],
+    });
   };
 
   return (
