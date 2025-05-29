@@ -46,6 +46,7 @@ export const auth = betterAuth({
   },
   session: {
     modelName: "sessionsTable",
+    maxAge: 60 * 60,
   },
   account: {
     modelName: "accountsTable",
