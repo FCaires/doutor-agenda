@@ -17,6 +17,7 @@ import { appointmentsTable } from "@/db/schema";
 import { auth } from "@/lib/auth";
 
 import { DatePicker } from "./_components/date-picker";
+import { RevenueChart } from "./_components/appointments-chart";
 import StatsCards from "./_components/stats-cards";
 
 interface DashboardPageProps {
@@ -82,6 +83,9 @@ const DashboardPage = async ({ searchParams }: DashboardPageProps) => {
         .where(eq(appointmentsTable.clinicId, session.user.clinic.id)),
     ]);
 
+  const chartStartDate = dayjs().subtract(10, "days").startOf("day");
+  const chartEndDate = dayjs().subtract(10, "days").endOf("day");
+
   return (
     <PageContainer>
       <PageHeader>
@@ -96,16 +100,15 @@ const DashboardPage = async ({ searchParams }: DashboardPageProps) => {
         </PageActions>
       </PageHeader>
       <PageContent>
-        <>
-          <StatsCards
-            totalRevenue={
-              totalRevenue.total ? Number(totalRevenue.total) : null
-            }
-            totalAppointments={totalAppointments.total}
-            totalPatients={totalPatients.total}
-            totalDoctors={totalDoctors.total}
-          />
-        </>
+        <StatsCards
+          totalRevenue={totalRevenue.total ? Number(totalRevenue.total) : null}
+          totalAppointments={totalAppointments.total}
+          totalPatients={totalPatients.total}
+          totalDoctors={totalDoctors.total}
+        />
+        <div className="grid grid-cols-[2.25fr_1fr]">
+          <RevenueChart />
+        </div>
       </PageContent>
     </PageContainer>
   );
