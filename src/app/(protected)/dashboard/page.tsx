@@ -16,12 +16,12 @@ import { db } from "@/db";
 import { appointmentsTable } from "@/db/schema";
 import { auth } from "@/lib/auth";
 
+import AppointmentsChart from "./_components/appointments-chart";
 import { DatePicker } from "./_components/date-picker";
-import { RevenueChart } from "./_components/appointments-chart";
 import StatsCards from "./_components/stats-cards";
 
 interface DashboardPageProps {
-  searchParms: Promise<{
+  searchParams: Promise<{
     from: string;
     to: string;
   }>;
@@ -107,7 +107,7 @@ const DashboardPage = async ({ searchParams }: DashboardPageProps) => {
           totalDoctors={totalDoctors.total}
         />
         <div className="grid grid-cols-[2.25fr_1fr]">
-          <RevenueChart />
+          <AppointmentsChart dailyAppointmentsData={dailyAppointmentsData} />
         </div>
       </PageContent>
     </PageContainer>
