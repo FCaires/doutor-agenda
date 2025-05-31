@@ -2,6 +2,7 @@
 
 import {
   CalendarDays,
+  Diamond,
   Gem,
   LayoutDashboard,
   LogOut,
@@ -33,7 +34,6 @@ import {
 } from "@/components/ui/sidebar";
 import { authClient } from "@/lib/auth-client";
 
-// Menu items.
 const items = [
   {
     title: "Dashboard",
@@ -71,11 +71,10 @@ export function AppSidebar() {
       },
     });
   };
-
   return (
     <Sidebar>
       <SidebarHeader className="border-b p-4">
-        <Image src="/Logo.svg" alt="doutor agenda" width={136} height={28} />
+        <Image src="/logo.svg" alt="Doutor Agenda" width={136} height={28} />
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
@@ -125,10 +124,10 @@ export function AppSidebar() {
                   </Avatar>
                   <div>
                     <p className="text-sm">
-                      {session?.data?.user?.clinic?.name}
+                      {session.data?.user?.clinic?.name}
                     </p>
                     <p className="text-muted-foreground text-sm">
-                      {session?.data?.user?.email}
+                      {session.data?.user.email}
                     </p>
                   </div>
                 </SidebarMenuButton>

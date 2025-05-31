@@ -33,5 +33,5 @@ export const PageActions = ({ children }: { children: React.ReactNode }) => {
 };
 
 export const PageContent = ({ children }: { children: React.ReactNode }) => {
-  return <div className="space-y-2">{children}</div>;
+  return <div className="space-y-6">{children}</div>;
 };

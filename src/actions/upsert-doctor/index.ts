@@ -50,8 +50,8 @@ export const upsertDoctor = actionClient
         availableToTime: availableToTimeUTC.format("HH:mm:ss"),
       })
       .onConflictDoUpdate({
-        target: [doctorsTable.id], // OU SEJA, SE ELE ENCTONRAR UM ID Q JA EXISTE,                                  
-        set: {                     //  ELE UTILIZA O SET PAR DAR UM PATCH NESSE ID
+        target: [doctorsTable.id],
+        set: {
           ...parsedInput,
           availableFromTime: availableFromTimeUTC.format("HH:mm:ss"),
           availableToTime: availableToTimeUTC.format("HH:mm:ss"),

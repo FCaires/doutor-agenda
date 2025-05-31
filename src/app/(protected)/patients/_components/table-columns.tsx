@@ -17,7 +17,7 @@ export const patientsTableColumns: ColumnDef<Patient>[] = [
   {
     id: "email",
     accessorKey: "email",
-    header: "E-mail",
+    header: "Email",
   },
   {
     id: "phoneNumber",
@@ -40,7 +40,6 @@ export const patientsTableColumns: ColumnDef<Patient>[] = [
     header: "Sexo",
     cell: (params) => {
       const patient = params.row.original;
-
       return patient.sex === "male" ? "Masculino" : "Feminino";
     },
   },
@@ -48,7 +47,6 @@ export const patientsTableColumns: ColumnDef<Patient>[] = [
     id: "actions",
     cell: (params) => {
       const patient = params.row.original;
-
       return <PatientsTableActions patient={patient} />;
     },
   },
