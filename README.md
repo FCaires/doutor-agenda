@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🩺 Doutor Agenda
+Doutor Agenda é uma aplicação SaaS para agendamento de consultas em clínicas médicas. Desenvolvida com Next.js e TypeScript, a plataforma oferece funcionalidades modernas para gerenciamento de clínicas, médicos e horários de atendimento.
 
-## Getting Started
+🚀 Tecnologias Utilizadas
+Next.js
 
-First, run the development server:
+TypeScript
 
-```bash
+Tailwind CSS
+
+Drizzle ORM
+
+Shadcn/UI
+
+Neon (banco de dados serverless)
+
+📦 Instalação
+Clone o repositório:
+
+bash
+Copiar
+Editar
+git clone https://github.com/FCaires/doutor-agenda.git
+cd doutor-agenda
+Instale as dependências:
+
+bash
+Copiar
+Editar
+npm install
+# ou
+yarn install
+Configure as variáveis de ambiente:
+
+Crie um arquivo .env.local com as variáveis necessárias, como a URL do banco de dados Neon.
+
+Execute as migrações do banco de dados:
+
+Utilize o Drizzle ORM para aplicar as migrações necessárias.
+
+Inicie o servidor de desenvolvimento:
+
+bash
+Copiar
+Editar
 npm run dev
-# or
+# ou
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Acesse a aplicação:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra http://localhost:3000 no seu navegador para visualizar a aplicação.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+📁 Estrutura do Projeto
+ruby
+Copiar
+Editar
+doutor-agenda/
+├── public/             # Arquivos públicos (imagens, favicon, etc.)
+├── src/                # Código-fonte principal
+│   ├── app/            # Páginas e rotas da aplicação
+│   ├── components/     # Componentes reutilizáveis
+│   ├── lib/            # Configurações e utilitários
+│   └── styles/         # Estilos globais
+├── drizzle.config.ts   # Configuração do Drizzle ORM
+├── next.config.ts      # Configuração do Next.js
+├── tsconfig.json       # Configuração do TypeScript
+└── package.json        # Dependências e scripts do projeto
+🛠️ Funcionalidades
+Autenticação de usuários (e-mail/senha e Google)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Cadastro e gerenciamento de clínicas
 
-## Learn More
+Gerenciamento de profissionais de saúde
 
-To learn more about Next.js, take a look at the following resources:
+Agendamento de consultas
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Interface responsiva e moderna com Shadcn/UI
