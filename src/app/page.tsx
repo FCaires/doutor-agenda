@@ -1,5 +1,14 @@
-import { Button } from "@/components/ui/button";
+"use client";
+
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
-  return <Button>Bootcamp!</Button>;
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/authentication");
+  }, [router]);
+
+  return <></>;
 }
